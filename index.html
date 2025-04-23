@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda Fácil</title>
+  <link rel="icon" href="img.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="login" id="loginForm">
+      <h1>Agenda Fácil</h1>
+      <input type="text" id="username" placeholder="Nome de usuário" />
+      <input type="email" id="email" placeholder="E-mail" />
+      <input type="password" id="password" placeholder="Senha" />
+      <select id="userType">
+        <option value="cliente">Cliente</option>
+        <option value="barbeiro">Barbeiro</option>
+      </select>
+      <button onclick="login()">Entrar</button>
+    </div>
+
+    <div class="painel" id="mainPanel" style="display: none;">
+      <h2 id="userWelcome"></h2>
+
+      <!-- Área do Barbeiro -->
+      <div class="admin-panel" id="adminPanel" style="display: none;">
+        <h3>Configurar Horários</h3>
+        <input type="date" id="newDate" />
+        <input type="time" id="newTime" />
+        <button onclick="addAvailableSlot()">Adicionar horário</button>
+        <div id="availableSlots"></div>
+        <button style="margin-top: 15px; background-color: #dc2626;" onclick="logout()">Voltar para a tela inicial</button>
+      </div>
+
+      <!-- Área do Cliente -->
+      <div class="booking-panel" id="clientePanel" style="display: none;">
+        <h3>Agendamento</h3>
+        <label>Barbeiro:
+          <select id="barberSelect"></select>
+        </label>
+        <label>Serviço:
+          <select id="serviceSelect">
+            <option value="Só barba">Só barba</option>
+            <option value="Só cabelo">Só cabelo</option>
+            <option value="Barba e cabelo">Barba e cabelo</option>
+            <option value="Lavagem">Lavagem</option>
+          </select>
+        </label>
+        <div id="scheduleOptions"></div>
+        <button onclick="bookAppointment()">Cadastrar</button>
+        <button style="margin-top: 15px; background-color: #dc2626;" onclick="logout()">Voltar para a tela inicial</button>
+      </div>
+
+      <!-- Agendamentos -->
+      <div class="agendamentos">
+        <h3>Seus Agendamentos</h3>
+        <div id="appointmentsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
